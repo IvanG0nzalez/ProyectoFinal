@@ -1,0 +1,40 @@
+{% extends 'adminHospital/base.html' %}
+
+{% block titulo %}
+    Ubicaciones
+{% endblock %}
+
+{% block contenido %}
+    <br>
+    <center><h1>LISTA DE UBICACIONES</h1></center>
+    <br>
+    <center><a href="{% url 'adminHospital:agregar_ubicacion' %}" class="btn btn-primary" id="color_boton_inicio">Agregar Ubicación</a></center>
+        <div id="tabla">
+            <table>
+            <thead>
+              <tr>
+                <th>Hospital</th>
+                <th>Provincia</th>
+                <th>Ciudad</th>
+                <th>Calle Principal</th>
+                <th>Opciones</th>
+              </tr>
+            </thead>
+                {% for ubicacion in ubicaciones %}
+                  <tr>
+                  <td><a href="{% url 'adminHospital:hospital-id' hospital_id=ubicacion.hospital.id  %}" class="link-info">{{ ubicacion.hospital }}</a></td>
+                  <td>{{ ubicacion.provincia }}</td>
+                  <td>{{ ubicacion.ciudad }}</td>
+                  <td>{{ ubicacion.calle_principal }}</td>
+                   <td>
+                      <a href="{% url 'adminHospital:modificar_ubicacion' ubicacion.id %}" class="btn btn-primary btn-sm" id="color_boton_inicio">Modificar</a>
+                      <a href="{% url 'adminHospital:eliminar_ubicacion' ubicacion.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                  </td>
+                  </tr>
+                {% endfor %}
+            </table>
+        </div>
+{% endblock %}
+
+
+

@@ -1,0 +1,50 @@
+{% extends 'adminHospital/base.html' %}
+
+{% block titulo %}
+    Inicio
+{% endblock %}
+
+{% block contenido %}
+    <div class="card" style="width: 17.5rem; border-color: black; float: left; margin-top: 50px">
+      <img src="https://img.freepik.com/fotos-premium/marco-sala-espera-hospital_110893-590.jpg?w=1380" class="card-img-top" alt="Hospitales">
+      <div class="card-body">
+        <center><h5 class="card-title">Hospitales</h5></center>
+        <center><a href="{% url 'adminHospital:hospital' %}" class="btn btn-primary" id="color_boton_inicio">Ver Hospitales</a></center>
+      </div>
+    </div>
+
+    <div class="card" style="width: 20rem; border-color: black; float: left; margin-top: 50px">
+      <img src="https://ruizhealytimes.com/wp-content/uploads/2022/05/imagenes-estepais-doctores.jpg" class="card-img-top" alt="Medicos">
+      <div class="card-body">
+        <center><h5 class="card-title">Medicos</h5></center>
+        <center><a href="{% url 'adminHospital:medico' %}" class="btn btn-primary" id="color_boton_inicio">Ver Medicos</a></center>
+      </div>
+    </div>
+
+    <div class="card" style="width: 16.8rem; border-color: black; float: left; margin-top: 50px">
+      <img src="https://www.homecare.com.pe/wp-content/uploads/2017/07/enfermeros.jpg" class="card-img-top" alt="Enfermeros">
+      <div class="card-body">
+        <center><h5 class="card-title">Enfermeros</h5></center>
+        <center><a href="{% url 'adminHospital:enfermero' %}" class="btn btn-primary" id="color_boton_inicio">Ver Enfermeros</a></center>
+      </div>
+    </div>
+
+    <div class="card" style="width: 16.8rem; border-color: black; float: left; margin-top: 50px">
+      <img src="https://elmedicointeractivo.com/wp-content/uploads/2019/11/PUBLICADA-EN-EMI-pacientes-en-sala-de-espera.jpg" class="card-img-top" alt="Pacientes">
+      <div class="card-body">
+        <center><h5 class="card-title">Pacientes</h5></center>
+        <center><a href="{% url 'adminHospital:paciente' %}" class="btn btn-primary" id="color_boton_inicio">Ver Pacientes</a></center>
+      </div>
+    </div>
+
+    <div class="card" style="width: 20rem; border-color: black; float: left; margin-top: 50px">
+      <img src="https://i.blogs.es/ad5d00/ubicacion-google/1366_2000.jpeg" class="card-img-top" alt="Ubicaciones">
+      <div class="card-body">
+        <center><h5 class="card-title">Ubicaciones</h5></center>
+        <center><a href="{% url 'adminHospital:ubicacion' %}" class="btn btn-primary" id="color_boton_inicio">Ver Ubicaciones</a></center>
+      </div>
+    </div>
+{% endblock %}
+
+
+

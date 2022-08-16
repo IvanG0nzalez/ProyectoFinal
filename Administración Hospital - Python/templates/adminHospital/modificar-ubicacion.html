@@ -1,0 +1,30 @@
+{% extends 'adminHospital/base.html' %}
+
+{% block titulo %}
+    Editar Ubicación
+{% endblock %}
+
+{% block contenido %}
+    <br><br><br>
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-body">
+                    <h2>Editar Ubicación</h2>
+                    <hr>
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <div class="d-flex justify-content-end" >
+                            <input type="submit" value="Editar" class="btn btn-primary" id="color_boton_inicio">
+                            &nbsp;
+                            <a href="{% url 'adminHospital:ubicacion' %}" class="btn btn-danger">Cancelar</a>
+                        </div>
+                    </form>
+                    {{ mensaje }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
