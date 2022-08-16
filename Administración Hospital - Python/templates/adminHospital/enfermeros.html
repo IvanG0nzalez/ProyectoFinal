@@ -1,0 +1,38 @@
+{% extends 'adminHospital/base.html' %}
+
+{% block titulo %}
+    Enfermeros
+{% endblock %}
+
+{% block contenido %}
+    <br>
+    <center><h1>LISTA DE ENFERMEROS</h1></center>
+    <br>
+    <center><a href="{% url 'adminHospital:agregar_enfermero' %}" class="btn btn-primary" id="color_boton_inicio">Agregar Enfermero</a></center>
+     <div id="tabla">
+            <table>
+            <thead>
+              <tr>
+                <th>Cédula</th>
+                <th>Nombre</th>
+                <th>Contrato</th>
+                <th>Opciones</th>
+              </tr>
+            </thead>
+                {% for enfermero in enfermeros %}
+                  <tr>
+                  <td><a href="{% url 'adminHospital:enfermero-id' enfermero_id=enfermero.id %}" class="link-info">{{ enfermero.cedula }}</a></td>
+                  <td>{{ enfermero.nombre }}</td>
+                  <td>{{ enfermero.tipo_contrato }}</td>
+                  <td>
+                      <a href="{% url 'adminHospital:modificar_enfermero' enfermero.id %}" class="btn btn-primary btn-sm" id="color_boton_inicio">Modificar</a>
+                      <a href="{% url 'adminHospital:eliminar_enfermero' enfermero.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                  </td>
+                  </tr>
+                {% endfor %}
+            </table>
+        </div>
+{% endblock %}
+
+
+

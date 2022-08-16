@@ -1,0 +1,20 @@
+{% extends 'adminHospital/base.html' %}
+
+{% block titulo %}
+    API Marvel
+{% endblock %}
+
+{% block contenido %}
+    <br>
+    <center><h1>Personajes de Marvel</h1></center>
+    <hr>
+    {% for character in characters %}
+        <div style="width: 300px; height: 400px; float: left; margin: 40px">
+            <img src="{{ character.thumbnail.path }}.{{ character.thumbnail.extension }}" style="height: 300px; width: 300px">
+            <center><a href="{{ character.urls.0.url }}"><h4>{{ character.name }}</h4></a></center>
+            <center><h6><strong>Última fecha de modificación</strong></h6></center>
+            <center><h6>{{ character.modified }}</h6></center>
+        </div>
+    {% endfor %}
+
+{% endblock %}
