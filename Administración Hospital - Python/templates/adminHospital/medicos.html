@@ -1,0 +1,40 @@
+{% extends 'adminHospital/base.html' %}
+
+{% block titulo %}
+    Medicos
+{% endblock %}
+
+{% block contenido %}
+    <br>
+    <center><h1>LISTA DE MÉDICOS</h1></center>
+    <br>
+    <center><a href="{% url 'adminHospital:agregar_medico' %}" class="btn btn-primary" id="color_boton_inicio">Agregar Médico</a></center>
+    <div id="tabla">
+            <table>
+            <thead>
+              <tr>
+                <th>Cédula</th>
+                <th>Nombre</th>
+                <th>Especialidad</th>
+                <th>Consultorio</th>
+                <th>Opciones</th>
+              </tr>
+            </thead>
+                {% for medico in medicos %}
+                  <tr>
+                  <td><a href="{% url 'adminHospital:medico_id' medico_id=medico.id %}" class="link-info">{{ medico.cedula }}</a></td>
+                  <td>{{ medico.nombre }}</td>
+                  <td>{{ medico.especialidad }}</td>
+                  <td>{{ medico.num_consultorio }}</td>
+                  <td>
+                      <a href="{% url 'adminHospital:modificar_medico' medico.id %}" class="btn btn-primary btn-sm" id="color_boton_inicio">Modificar</a>
+                      <a href="{% url 'adminHospital:eliminar_medico' medico.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                  </td>
+                  </tr>
+                {% endfor %}
+            </table>
+    </div>
+{% endblock %}
+
+
+

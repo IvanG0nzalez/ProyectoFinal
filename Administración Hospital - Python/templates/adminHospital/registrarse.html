@@ -1,0 +1,14 @@
+{% extends 'adminHospital/base_login.html' %}
+
+{% block titulo %}
+    Registrarse
+{% endblock %}
+
+{% block contenido %}
+    <form action="" style="margin-left: 150px; margin-top: 200px"  method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button style="margin-left: 400px" class="btn btn-secondary" type="submit">Registrar</button>
+    </form>
+    <p style="margin-left: 425px; margin-top: 200px">Si ya tienes una cuenta, ve a <a href="/inicio/login">Iniciar Sesión</a></p>
+{% endblock %}

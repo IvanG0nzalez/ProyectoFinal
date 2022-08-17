@@ -1,0 +1,40 @@
+{% extends 'adminHospital/base.html' %}
+
+{% block titulo %}
+    Pacientes
+{% endblock %}
+
+{% block contenido %}
+    <br>
+    <center><h1>LISTA DE PACIENTES</h1></center>
+    <br>
+    <center><a href="{% url 'adminHospital:agregar_paciente' %}" class="btn btn-primary" id="color_boton_inicio">Agregar Paciente</a></center>
+    <div id="tabla">
+            <table>
+            <thead>
+              <tr>
+                <th>Cédula</th>
+                <th>Nombre</th>
+                <th>Género</th>
+                <th>Fecha de Ingreso</th>
+                <th>Opciones</th>
+              </tr>
+            </thead>
+                {% for paciente in pacientes %}
+                  <tr>
+                  <td><a href="{% url 'adminHospital:paciente-id' paciente_id=paciente.id %}" class="link-info">{{ paciente.cedula }}</a></td>
+                  <td>{{ paciente.nombre }}</td>
+                  <td>{{ paciente.genero }}</td>
+                  <td>{{ paciente.fecha_ingreso }}</td>
+                  <td>
+                      <a href="{% url 'adminHospital:modificar_paciente' paciente.id %}" class="btn btn-primary btn-sm" id="color_boton_inicio">Modificar</a>
+                      <a href="{% url 'adminHospital:eliminar_paciente' paciente.id %}" class="btn btn-danger btn-sm">Eliminar</a>
+                  </td>
+                  </tr>
+                {% endfor %}
+            </table>
+        </div>
+{% endblock %}
+
+
+
